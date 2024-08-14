@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
+const { connectToDatabase } = require('./configure/config');  // Importa a função de conexão
 const app = express();
 const port = 3000;
+
+// Conecta ao MongoDB
+connectToDatabase();
 
 app.get("/", (req, res) => {
     res.send({ ola: "seja bem-vindo" });
