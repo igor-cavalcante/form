@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receber Objeto</title>
+</head>
+<body>
+    <h1>Receber Objeto</h1>
+    <button id="receberObjetoBtn">Receber Objeto</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        document.getElementById('receberObjetoBtn').addEventListener('click', function() {
+            fetch('http://localhost:3000/receber')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+                    console.log('Objeto recebido:', data);
+                })
+                .catch(error => console.error('Erro:', error));
+        });
+    </script>
+</body>
+</html>
