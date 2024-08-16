@@ -1,7 +1,7 @@
 // config.js
 const mongoose = require('mongoose');
 
-const mongodbUri = 'mongodb+srv://admin:Rr9VpmUo0Ro3xDSg@projetox.ds36m.mongodb.net/?retryWrites=true&w=majority&appName=Projetox';  // Substitua com o URI do seu MongoDB
+const mongodbUri = 'mongodb+srv://userteste:3nAb7mB0P0FUXyJn@projetox.ds36m.mongodb.net/?retryWrites=true&w=majority&appName=Projetox';  // Substitua com o URI do seu MongoDB
 
 const connectToDatabase = async () => {
     try {
