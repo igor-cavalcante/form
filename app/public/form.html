@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Portfólio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4">Formulário de Portfólio</h2>
+
+      <form action="">
+        <div class="form-group">
+          <label for="name">Nome :</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            placeholder="Digite o seu nome"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Email:</label>
+          <input type="text" class="form-control" name="titulo" placeholder="Digite um titulo para o formulário"/>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Fale um pouco sobre você :</label>
+          <textarea
+            class="form-control"
+            name="descricao"
+            id="descricao"
+            cols="10"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Adicionar foto ao portfólio:</label>
+          <input type="file" class="form-control-file" name="foto" id="foto" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+      </form>
+    </div>
+
+
+     <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

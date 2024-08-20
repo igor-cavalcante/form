@@ -4,60 +4,106 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portifolio</title>
-    <link rel="stylesheet" href="./src/style.css" />
+    <title>Portfólio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
 
-  <body>
-    <header class="cabecalho">
-      <nav class="cabecalho__menu">
-        <a class="cabecalho__menu__link" href="index.html">Home</a>
-        <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
+  <body class="bg-dark text-light">
+    <header class="container py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="portifolio.html">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Sobre mim</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
-    <main class="apresentacao">
-      <section class="apresentacao__conteudo">
-        <h1 class="apresentacao__conteudo__titulo">
-          Eleve sua presença online com um design de qualidade!
-        </h1>
-        <p class="apresentacao__conteudo__texto">
-          Olá! Sou Igor Cavalcante, desenvolvedor Front-end com especialidade em
-          React, HTML e CSS. Ajudo pequenos negócios e designers a colocarem em
-          prática boas ideias. Vamos conversar?
-        </p>
-        <div class="apresentacao__links">
-          <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
-          <a
-            class="apresentacao__links__link"
-            href="https://github.com/igor-cavalcante"
-          >
-            <img src="./assets/github.png" />
-            Github
-          </a>
-          <a
-            class="apresentacao__links__link"
-            href="https://www.linkedin.com/in/igor-cavalcante-25b944265/"
-          >
-            <img src="./assets/linkedin.png" />
-            LinkedIn
-          </a>
-          <a
-            class="apresentacao__links__link"
-            href="https://twitch.tv/guilimadev"
-          >
-            <img src="./assets/twitch.png" />
-            Twitch
-          </a>
+
+    <main class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 mb-4 mb-md-0">
+          <section>
+            <h1 class="display-4 font-weight-bold text-warning">
+              Eleve sua presença online com um design de qualidade!
+            </h1>
+            <p class="lead">
+              Olá! Sou Igor Cavalcante, desenvolvedor Front-end com especialidade em
+              React, HTML e CSS. Ajudo pequenos negócios e designers a colocarem em
+              prática boas ideias. Vamos conversar?
+            </p>
+            <div class="mt-4">
+              <h2 class="h4">Acesse minhas redes</h2>
+              <ul class="list-unstyled">
+                <li class="my-2">
+                  <a
+                    class="btn btn-outline-warning btn-block d-flex align-items-center justify-content-center"
+                    href="https://github.com/igor-cavalcante"
+                    target="_blank"
+                  >
+                    <img src="./src/img/github.png" alt="Github" class="mr-2" width="24" height="24"/>
+                    Github
+                  </a>
+                </li>
+                <li class="my-2">
+                  <a
+                    class="btn btn-outline-warning btn-block d-flex align-items-center justify-content-center"
+                    href="https://www.linkedin.com/in/igor-cavalcante-25b944265/"
+                    target="_blank"
+                  >
+                    <img src="./src/img/linkedin.png" alt="LinkedIn" class="mr-2" width="24" height="24"/>
+                    LinkedIn
+                  </a>
+                </li>
+                <li class="my-2">
+                  <a
+                    class="btn btn-outline-warning btn-block d-flex align-items-center justify-content-center"
+                    href="https://twitch.tv/guilimadev"
+                    target="_blank"
+                  >
+                    <img src="./src/img/twitch.png" alt="Twitch" class="mr-2" width="24" height="24"/>
+                    Twitch
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
         </div>
-      </section>
-      <img
-        class="apresentacao__conteudo_img"
-        src="./assets/foto.jpeg"
-        alt="Foto da Igor  programando"
-      />
+        <div class="col-12 col-md-6 text-center">
+          <img
+            src="./src/img/foto.jpeg"
+            alt="Foto de Igor programando"
+            class="img-fluid rounded-circle"
+            style="max-height: 400px;"
+          />
+        </div>
+      </div>
     </main>
-    <footer class="rodape">
-      <p>Desenvolvido por Igor Cavalcante.</p>
+
+    <footer class="bg-warning text-dark text-center py-3">
+      <p class="mb-0">Desenvolvido por Igor Cavalcante.</p>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

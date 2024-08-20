@@ -7,6 +7,9 @@ const port = 8080;
 // Conecta ao MongoDB
 connectToDatabase();
 
+// Servir arquivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => {
   res.send({ ola: "seja bem-vindo" });
 });
@@ -16,15 +19,14 @@ app.get("/pagina", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// Rota para servir a página HTML do portifólio
+app.get("/form", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "form.html"));
+});
+
 // Rota para servir a página HTML portifolio
 app.get("/portifolio", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "portifolio.html"));
-});
-
-// Rota GET para enviar um objeto JSON
-app.get("/receber", (req, res) => {
-  const objeto = { nome: "João", idade: 30, cidade: "São Paulo" };
-  res.json(objeto);
 });
 
 app.listen(port, () => {
