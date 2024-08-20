@@ -41,13 +41,11 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-6 mb-4 mb-md-0">
           <section>
-            <h1 class="display-4 font-weight-bold text-warning">
-              Eleve sua presença online com um design de qualidade!
+            <h1 class="display-4 font-weight-bold text-warning" id="title">
+              
             </h1>
-            <p class="lead">
-              Olá! Sou Igor Cavalcante, desenvolvedor Front-end com especialidade em
-              React, HTML e CSS. Ajudo pequenos negócios e designers a colocarem em
-              prática boas ideias. Vamos conversar?
+            <p class="lead" id="descricao">
+             
             </p>
             <div class="mt-4">
               <h2 class="h4">Acesse minhas redes</h2>
@@ -58,7 +56,13 @@
                     href="https://github.com/igor-cavalcante"
                     target="_blank"
                   >
-                    <img src="./src/img/github.png" alt="Github" class="mr-2" width="24" height="24"/>
+                    <img
+                      src="./src/img/github.png"
+                      alt="Github"
+                      class="mr-2"
+                      width="24"
+                      height="24"
+                    />
                     Github
                   </a>
                 </li>
@@ -68,7 +72,13 @@
                     href="https://www.linkedin.com/in/igor-cavalcante-25b944265/"
                     target="_blank"
                   >
-                    <img src="./src/img/linkedin.png" alt="LinkedIn" class="mr-2" width="24" height="24"/>
+                    <img
+                      src="./src/img/linkedin.png"
+                      alt="LinkedIn"
+                      class="mr-2"
+                      width="24"
+                      height="24"
+                    />
                     LinkedIn
                   </a>
                 </li>
@@ -78,7 +88,13 @@
                     href="https://twitch.tv/guilimadev"
                     target="_blank"
                   >
-                    <img src="./src/img/twitch.png" alt="Twitch" class="mr-2" width="24" height="24"/>
+                    <img
+                      src="./src/img/twitch.png"
+                      alt="Twitch"
+                      class="mr-2"
+                      width="24"
+                      height="24"
+                    />
                     Twitch
                   </a>
                 </li>
@@ -88,22 +104,60 @@
         </div>
         <div class="col-12 col-md-6 text-center">
           <img
-            src="./src/img/foto.jpeg"
-            alt="Foto de Igor programando"
+            id="image"
+            src=""
+            alt="Foto do usuário"
             class="img-fluid rounded-circle"
-            style="max-height: 400px;"
+            style="max-height: 400px"
           />
         </div>
       </div>
     </main>
 
     <footer class="bg-warning text-dark text-center py-3">
-      <p class="mb-0">Desenvolvido por Igor Cavalcante.</p>
+      <p class="mb-0" id="name"></p>
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script para consumir a API -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ID do usuário que você quer buscar
+        const userId = "66c4e838445dd2bae61b0a38";
+
+        // Função para buscar os dados do usuário
+        async function fetchUserData() {
+          try {
+            const response = await fetch(
+              `http://localhost:3000/receber/${userId}`
+            );
+            const userData = await response.json();
+
+            // Atualiza os elementos da página com os dados recebidos
+            document.getElementById("title").textContent = 
+              userData.title || "Título não encontrado";
+            document.getElementById("descricao").textContent =
+              userData.description || "Descrição não encontrada";
+            document.getElementById("name").textContent = "Desenvolvido por " +
+              userData.name || "Nome não encontrado";
+
+            if (userData.image) {
+              // Converte a string Base64 para uma URL de imagem
+              const imageUrl = `data:image/jpeg;base64,${userData.image}`;
+              document.getElementById("image").src = imageUrl;
+            }
+          } catch (error) {
+            console.error("Erro ao buscar os dados do usuário:", error);
+          }
+        }
+
+        // Chama a função para buscar os dados do usuário
+        fetchUserData();
+      });
+    </script>
   </body>
 </html>

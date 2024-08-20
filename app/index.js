@@ -14,20 +14,20 @@ app.get("/", (req, res) => {
   res.send({ ola: "seja bem-vindo" });
 });
 
-// Rota para servir a página HTML index
-app.get("/pagina", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// // Rota para servir a página HTML index
+// app.get("/pagina", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "index.html"));
+// });
 
-// Rota para servir a página HTML do portifólio
-app.get("/form", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "form.html"));
-});
+// // Rota para servir a página HTML do portifólio
+// app.get("/form", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "form.html"));
+// });
 
-// Rota para servir a página HTML portifolio
-app.get("/portifolio", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "portifolio.html"));
-});
+// // Rota para servir a página HTML portifolio
+// app.get("/portifolio", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "portifolio.html"));
+// });
 
 app.listen(port, () => {
   console.log(`API e página rodando na porta ${port}`);
