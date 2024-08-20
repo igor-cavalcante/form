@@ -79,8 +79,11 @@
             });
 
             if (response.ok) {
-              // Se o envio for bem-sucedido, redireciona para o portfólio
-              window.location.href = "portifolio.html";
+              const data = await response.json(); // Obtém o JSON retornado pela API
+              const id = data.id; // Obtém o ID do documento
+
+              // Redireciona para a página do portfólio com o ID na URL
+              window.location.href = `portifolio.html?id=${id}`;
             } else {
               // Se houver um erro, exibe uma mensagem (opcional)
               alert("Erro ao enviar os dados. Tente novamente.");

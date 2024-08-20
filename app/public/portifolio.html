@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Sobre mim</a>
+              <a class="nav-link" href="index.html">Voltar para o Form</a>
             </li>
           </ul>
         </div>
@@ -41,12 +41,8 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-6 mb-4 mb-md-0">
           <section>
-            <h1 class="display-4 font-weight-bold text-warning" id="title">
-              
-            </h1>
-            <p class="lead" id="descricao">
-             
-            </p>
+            <h1 class="display-4 font-weight-bold text-warning" id="title"></h1>
+            <p class="lead" id="descricao"></p>
             <div class="mt-4">
               <h2 class="h4">Acesse minhas redes</h2>
               <ul class="list-unstyled">
@@ -126,24 +122,32 @@
     <!-- Script para consumir a API -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // ID do usuário que você quer buscar
-        const userId = "66c4e838445dd2bae61b0a38";
+        // Função para buscar o ID do usuário da query string
+        function getUserIdFromQuery() {
+          const params = new URLSearchParams(window.location.search);
+          return params.get("id");
+        }
 
         // Função para buscar os dados do usuário
-        async function fetchUserData() {
+        async function fetchUserData(userId) {
           try {
             const response = await fetch(
               `http://localhost:3000/receber/${userId}`
             );
+
+            if (!response.ok) {
+              throw new Error("Erro na resposta da API");
+            }
+
             const userData = await response.json();
 
             // Atualiza os elementos da página com os dados recebidos
-            document.getElementById("title").textContent = 
+            document.getElementById("title").textContent =
               userData.title || "Título não encontrado";
             document.getElementById("descricao").textContent =
               userData.description || "Descrição não encontrada";
-            document.getElementById("name").textContent = "Desenvolvido por " +
-              userData.name || "Nome não encontrado";
+            document.getElementById("name").textContent =
+              "Desenvolvido por " + (userData.name || "Nome não encontrado");
 
             if (userData.image) {
               // Converte a string Base64 para uma URL de imagem
@@ -155,8 +159,13 @@
           }
         }
 
-        // Chama a função para buscar os dados do usuário
-        fetchUserData();
+        // Obtém o ID do usuário e busca os dados
+        const userId = getUserIdFromQuery();
+        if (userId) {
+          fetchUserData(userId);
+        } else {
+          console.error("ID do usuário não encontrado na query string.");
+        }
       });
     </script>
   </body>
